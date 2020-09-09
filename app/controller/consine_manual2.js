@@ -75,16 +75,16 @@ function checkSimilarity(){
 
     const similarity = getSimilarityScore(textCosineSimilarity(text1,text2));
     var data ={
-        "text1":text1,
-        "text2":text2,
-        "jml1":wordCountA,
-        "jml2":wordCountB,
-        "addtodic":  addWordsToDictionary(wordCountA,dict),
-        "addtodic2":addWordsToDictionary(wordCountB,dict),
-        "vector 1":vectorA,
-    "vector 2": vectorB,
+        "sample1":text1,
+        "sample2":text2,
+        "tf-idf1":wordCountA,
+        "tf-idf2":wordCountB,
+        // "kamus1":  addWordsToDictionary(wordCountA,dict),
+        // "kamus2":addWordsToDictionary(wordCountB,dict),
+        "vector1":vectorA,
+    "vector2": vectorB,
     "real":textCosineSimilarity(text1,text2),
-    "similarity":similarity
+    "similarity(100%)":similarity
     }
     return data
 }

@@ -3,6 +3,7 @@
 exports.index = function(req,res){
 const str1 = 'This is an example to test cosine similarity between two strings';
 const str2 = 'This example is testing cosine similatiry for given two strings';
+
 const str1Words = str1.trim().split(' ').map(omitPunctuations).map(toLowercase);
 const str2Words = str2.trim().split(' ').map(omitPunctuations).map(toLowercase);
 const allWordsUnique = Array.from(new Set(str1Words.concat(str2Words)));
@@ -12,10 +13,10 @@ const str1Vector = calcTfIdfVectorForDoc(str1Words, [str2Words], allWordsUnique)
 const str2Vector = calcTfIdfVectorForDoc(str2Words, [str1Words], allWordsUnique);
 
     res.json({
-        "String1":str1,
-        "String2":str2,
-        "Word1":str1Words,
-        "Word2":str2Words,
+        "sample1":str1,
+        "sample2":str2,
+        "tf-idf1":str1Words,
+        "tf-idf2":str2Words,
         "vector1":str1Vector,
         "vector2":str2Vector,
         "consine":cosineSimilarity(str1Vector, str2Vector)});
