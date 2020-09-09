@@ -10,7 +10,6 @@ function wordCountMap(str){
     let wordCount = {};
     words.forEach((w)=>{
         wordCount[w] = (wordCount[w] || 0) +1;
-
     });
 return wordCount;
 }
@@ -64,7 +63,7 @@ function getSimilarityScore(val){
 
 function checkSimilarity(){
     const text1 = 'This is an example to test cosine similarity between two strings';
-    const text2 = 'This example is testing cosine similatiry for given two strings';
+    const text2 = 'This example is testing cosine similarity for given two strings';
     const wordCountA = wordCountMap(text1);
     const wordCountB = wordCountMap(text2);
     let dict = {};

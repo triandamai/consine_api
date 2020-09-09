@@ -2,7 +2,7 @@
 
 exports.index = function(req,res){
 const str1 = 'This is an example to test cosine similarity between two strings';
-const str2 = 'This example is testing cosine similatiry for given two strings';
+const str2 = 'This example is testing cosine similarity for given two strings';
 
 const str1Words = str1.trim().split(' ').map(omitPunctuations).map(toLowercase);
 const str2Words = str2.trim().split(' ').map(omitPunctuations).map(toLowercase);
