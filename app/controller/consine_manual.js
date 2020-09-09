@@ -19,7 +19,9 @@ const str2Vector = calcTfIdfVectorForDoc(str2Words, [str1Words], allWordsUnique)
         "tf-idf2":str2Words,
         "vector1":str1Vector,
         "vector2":str2Vector,
-        "consine":cosineSimilarity(str1Vector, str2Vector)});
+        "real":cosineSimilarity(str1Vector, str2Vector),
+      "similarity(100%)":getSimilarityScore(cosineSimilarity(str1Vector, str2Vector))
+    }),
     res.end();
 }
 
@@ -30,6 +32,9 @@ function cosineSimilarity(vec1, vec2) {
   
     return dotProduct / (vec1Size * vec2Size);
   };
+  function getSimilarityScore(val){
+    return Math.round(val * 100)
+}
   //
 // tf-idf algorithm implementation (https://en.wikipedia.org/wiki/Tf%E2%80%93idf)
 //
