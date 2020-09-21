@@ -1,8 +1,8 @@
 'use strict'
+const response = require("../res/index")
 
 exports.index = function(req,res){
-    res.json(checkSimilarity());
-    res.end();
+    response.ok(checkSimilarity(),res)
 }
 
 function wordCountMap(str){

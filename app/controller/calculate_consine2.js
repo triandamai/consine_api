@@ -1,4 +1,5 @@
 'use strict';
+const response = require("../res/index")
 
 exports.index = function(req,res){
 const str1 = 'This is an example to test cosine similarity between two strings';
@@ -12,7 +13,7 @@ const allWordsUnique = Array.from(new Set(str1Words.concat(str2Words)));
 const str1Vector = calcTfIdfVectorForDoc(str1Words, [str2Words], allWordsUnique);
 const str2Vector = calcTfIdfVectorForDoc(str2Words, [str1Words], allWordsUnique);
 
-    res.json({
+    var result = {
         "sample1":str1,
         "sample2":str2,
         "tf-idf1":str1Words,
@@ -20,9 +21,9 @@ const str2Vector = calcTfIdfVectorForDoc(str2Words, [str1Words], allWordsUnique)
         "vector1":str1Vector,
         "vector2":str2Vector,
         "real":cosineSimilarity(str1Vector, str2Vector),
-      "similarity(100%)":getSimilarityScore(cosineSimilarity(str1Vector, str2Vector))
-    }),
-    res.end();
+        "similarity(100%)":getSimilarityScore(cosineSimilarity(str1Vector, str2Vector))
+    }
+    response.ok(result,res)
 }
 
 function cosineSimilarity(vec1, vec2) {
